@@ -25,34 +25,38 @@
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title')}}">
+                        <input type="text" class="form-control" id="title" name="title"
+                            value="{{ old('title') }}">
                     </div>
                     <div class="mb-3">
                         <label for="type" class="form-label">Tipo di progetto</label>
                         {{-- @dump($types) --}}
-                        <select name="type" id="type" class="form-control">
+                        <select name="type_id" id="type" class="form-control form-select">
+                                <option value="" disabled {{ @old("type_id") ? '' : 'selected' }}> Seleziona un tipo di progetto</option>
                             @foreach ($types as $type)
-                            <option value="{{$type->id}}">{{$type->type}}</option>
-                            
+                                <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
                         </select>
-                        
+
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" id="content" rows="10" name="content">{{ old('content')}}</textarea>
+                        <textarea class="form-control" id="content" rows="10" name="content">{{ old('content') }}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image" value="{{ old('image')}}">
+                        <input type="file" class="form-control" id="image" name="image"
+                            value="{{ old('image') }}">
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date')}}">
+                        <input type="date" class="form-control" id="date" name="date"
+                            value="{{ old('date') }}">
                     </div>
                     <div class="mb-3">
                         <label for="author" class="form-label">Author</label>
-                        <input type="author" class="form-control" id="author" name="author" value="{{ Auth::user()->name }}">
+                        <input type="author" class="form-control" id="author" name="author"
+                            value="{{ Auth::user()->name }}">
                     </div>
                     <button type="submit" class="btn btn-secondary">Create new project</button>
                 </form>

@@ -21,7 +21,7 @@ class ProjectController extends Controller
             'image' => 'required|image|max:350',
             'content' => 'required|min:10',
             'date' => 'required|string|min:2|max:20',
-            'type_id' => 'exists:types,id',
+            'type_id' => 'required|exists:types,id',
         ]);
     }
 

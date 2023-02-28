@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <h1>
-                Projects  I've Worked on
+                Projects I've Worked on
             </h1>
         </div>
     </div>
@@ -22,7 +22,7 @@
                     <p class="card-text">{{ $project->content }}</p>
                 </div>
                 <div class="card-header">
-                    {{ $project->date }}
+                    {{ $project->date }} - {{ $project->type->type }}
                 </div>
             </div>
 

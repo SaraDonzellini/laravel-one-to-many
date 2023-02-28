@@ -31,12 +31,12 @@
                     <div class="mb-3">
                         <label for="type" class="form-label">Tipo di progetto</label>
                         {{-- @dump($types) --}}
-                        <select name="type" id="type" class="form-control">
-                            @foreach ($types as $type)
-                                <option value="{{ $type->id }}">
-                                    {{ $type->type }}</option>
-                            @endforeach
-                        </select>
+                        <select name="type_id" id="type" class="form-control form-select">
+                            <option value="" disabled {{ @old("type_id") ? '' : 'selected' }}> Seleziona un tipo di progetto</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->type }}</option>
+                        @endforeach
+                    </select>
 
                     </div>
                     <div class="mb-3">
