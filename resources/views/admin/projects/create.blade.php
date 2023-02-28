@@ -28,6 +28,17 @@
                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title')}}">
                     </div>
                     <div class="mb-3">
+                        <label for="type" class="form-label">Tipo di progetto</label>
+                        {{-- @dump($types) --}}
+                        <select name="type" id="type" class="form-control">
+                            @foreach ($types as $type)
+                            <option value="{{$type->id}}">{{$type->type}}</option>
+                            
+                            @endforeach
+                        </select>
+                        
+                    </div>
+                    <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
                         <textarea class="form-control" id="content" rows="10" name="content">{{ old('content')}}</textarea>
                     </div>

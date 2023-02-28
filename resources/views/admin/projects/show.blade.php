@@ -23,7 +23,7 @@
 
                     </div>
                     <div class="card-header">
-                        {{ $project->date }}
+                        {{ $project->date }} - {{$project->type->type}}
                     </div>
                 </div>
 

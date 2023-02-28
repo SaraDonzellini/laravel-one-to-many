@@ -29,26 +29,39 @@
                             value="{{ old('title', $project->title) }}">
                     </div>
                     <div class="mb-3">
+                        <label for="type" class="form-label">Tipo di progetto</label>
+                        {{-- @dump($types) --}}
+                        <select name="type" id="type" class="form-control">
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">
+                                    {{ $type->type }}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                    <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" id="content" rows="10" name="content"
-                            >{{ old('content', $project->content) }}</textarea>
+                        <textarea class="form-control" id="content" rows="10" name="content">{{ old('content', $project->content) }}</textarea>
                     </div>
                     <div class="mb-3">
-                            <label for="image" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="image" name="image" value="{{ old('image', $project->image) }}">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image"
+                            value="{{ old('image', $project->image) }}">
                     </div>
                     <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $project->date) }}">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="date" name="date"
+                            value="{{ old('date', $project->date) }}">
                     </div>
                     <div class="mb-3">
                         <label for="author" class="form-label">Author</label>
-                        <input type="author" class="form-control" id="author" name="author" value="{{ Auth::user()->name }}">
+                        <input type="author" class="form-control" id="author" name="author"
+                            value="{{ Auth::user()->name }}">
                     </div>
-                    <button type="submit" class="btn btn-secondary">Create new project</button>
-                    </form>
+                    <button type="submit" class="btn btn-secondary">Edit project</button>
+                </form>
 
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 @endsection

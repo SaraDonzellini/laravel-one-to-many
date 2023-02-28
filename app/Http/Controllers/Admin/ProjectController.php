@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,7 @@ class ProjectController extends Controller
             'image' => 'required|image|max:350',
             'content' => 'required|min:10',
             'date' => 'required|string|min:2|max:20',
+            'type_id' => 'exists:types,id',
         ]);
     }
 
@@ -42,9 +44,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('admin.projects.create');
+        return view('admin.projects.create', compact('project'), ['types' => Type::all()]);
     }
 
     /**
@@ -88,7 +90,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'), ['types' => Type::all()]);
     }
 
     /**
